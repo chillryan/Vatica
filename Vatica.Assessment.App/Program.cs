@@ -51,11 +51,5 @@
 				Console.WriteLine($"Exchange: {tickerExchange}");
 			} while (!entry.Equals("exit", StringComparison.InvariantCultureIgnoreCase));
 		}
-
-		public class GoogleQuoate
-		{
-			[JsonProperty("e")]
-			public string Exchange { get; set; }
-		}
 	}
 }

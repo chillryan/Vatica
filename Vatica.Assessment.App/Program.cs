@@ -28,7 +28,7 @@
 				var response = _client.GetAsync($"finance/info?q={quoteTicker}").Result;
 				if (response.IsSuccessStatusCode)
 				{
-					var content = response.Content.ReadAsStringAsync().Result.Replace("//", "");
+					var content = response.Content.ReadAsStringAsync().Result.Replace("//", ""); // google sends us malformed json so let's clean it up
 					var token = JToken.Parse(content);
 					result = token.Root.Select(t => (string)t["e"]).FirstOrDefault();
 				}
